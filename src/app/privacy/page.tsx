@@ -46,7 +46,7 @@ export default function PrivacyDashboard() {
             <Shield size={32} className="text-white" />
           </div>
           <h1 className="text-3xl font-bold text-gray-800 mb-2">Your Privacy</h1>
-          <p className="text-gray-600">You're in complete control</p>
+          <p className="text-gray-600">You&apos;re in complete control</p>
         </motion.div>
 
         {/* Privacy Promise */}
@@ -63,11 +63,11 @@ export default function PrivacyDashboard() {
               <ul className="text-sm text-green-800 space-y-2">
                 <li className="flex items-start gap-2">
                   <Check size={16} className="shrink-0 mt-0.5" />
-                  <span>Zero ads, ever. You're not a product.</span>
+                  <span>Zero ads, ever. You&apos;re not a product.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check size={16} className="shrink-0 mt-0.5" />
-                  <span>Your conversations are encrypted locally—we can't read them.</span>
+                  <span>Your conversations are encrypted locally—we can&apos;t read them.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check size={16} className="shrink-0 mt-0.5" />
@@ -98,7 +98,7 @@ export default function PrivacyDashboard() {
             {showId ? anonymousId : '••••••••••••••••'}
           </div>
           <p className="text-xs text-gray-500 mt-2">
-            This is your unique ID. It doesn't contain your name, email, or any personal info.
+            This is your unique ID. It doesn&apos;t contain your name, email, or any personal info.
           </p>
         </div>
 
@@ -161,7 +161,7 @@ export default function PrivacyDashboard() {
             Security Tips
           </h4>
           <ul className="text-xs text-blue-800 space-y-2">
-            <li>• Don't share screenshots of your conversations</li>
+            <li>• Don&apos;t share screenshots of your conversations</li>
             <li>• Use incognito/private browsing on shared devices</li>
             <li>• Clear your browser history if needed</li>
             <li>• Use a strong device lock (PIN/fingerprint)</li>

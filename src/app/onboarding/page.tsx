@@ -184,7 +184,7 @@ export default function OnboardingPage() {
                 className="bg-purple-50 border border-purple-200 rounded-2xl p-4"
               >
                 <p className="text-sm text-purple-700">
-                  💜 We're here for you! Remember, you can always talk to a trusted adult about your health.
+                  💜 We&apos;re here for you! Remember, you can always talk to a trusted adult about your health.
                 </p>
               </motion.div>
             )}
@@ -208,7 +208,7 @@ export default function OnboardingPage() {
                 className="bg-blue-50 border border-blue-200 rounded-2xl p-4"
               >
                 <p className="text-sm text-blue-700">
-                  🌸 Your health journey matters at every stage. We're here to support you!
+                  🌸 Your health journey matters at every stage. We&apos;re here to support you!
                 </p>
               </motion.div>
             )}

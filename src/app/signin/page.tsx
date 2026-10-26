@@ -188,7 +188,7 @@ export default function SignIn() {
                   </div>
 
                   <h3 className="text-2xl font-black text-gray-900 mb-2 text-center font-nunito">Before you switch...</h3>
-                  <p className="text-sm text-gray-500 text-center mb-8">Here's what happens with Google sign-in</p>
+                  <p className="text-sm text-gray-500 text-center mb-8">Here&apos;s what happens with Google sign-in</p>
                   
                   <div className="space-y-3 mb-8">
                      <div className="flex gap-3 items-start p-3 bg-green-50 rounded-xl border border-green-100">

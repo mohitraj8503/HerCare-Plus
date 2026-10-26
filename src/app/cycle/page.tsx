@@ -420,7 +420,7 @@ export default function CyclePage() {
             >
               <div className="w-12 h-1.5 bg-gray-100 rounded-full mx-auto mb-6"></div>
               
-              <h3 className="text-3xl font-black text-gray-800 mb-2">How's your flow?</h3>
+              <h3 className="text-3xl font-black text-gray-800 mb-2">How&apos;s your flow?</h3>
               <p className="text-sm font-medium text-gray-400 mb-6 flex items-center gap-2">
                 <CalendarIcon size={14} />
                 {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}

@@ -228,7 +228,7 @@ export default function SymptomChecker() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-             Women's Health Support
+             Women&apos;s Health Support
             </p>
           </div>
         </div>
@@ -395,7 +395,7 @@ export default function SymptomChecker() {
                     </div>
                     <div>
                       <h4 className="font-bold text-pink-900">
-                        Women's Health Specialist
+                        Women&apos;s Health Specialist
                       </h4>
                       <p className="text-xs text-pink-700">
                         Gynecologists & OB-GYNs

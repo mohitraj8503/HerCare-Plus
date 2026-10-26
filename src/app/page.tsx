@@ -262,7 +262,7 @@ export default function LandingPage() {
             <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">End-to-End Encrypted</span>
           </div>
           <p className="text-[11px] text-gray-400 leading-relaxed max-w-[240px] mx-auto italic">
-            "We built this because we believe health privacy is a basic human right for every woman."
+            &quot;We built this because we believe health privacy is a basic human right for every woman.&quot;
           </p>
         </div>
       </main>

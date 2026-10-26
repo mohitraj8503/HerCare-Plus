@@ -168,7 +168,7 @@ export default function AboutPage() {
           <div className="bg-green-50 border border-green-100 rounded-2xl p-4 shadow-sm">
             <div className="flex items-center justify-center gap-2 text-sm text-green-800">
               <Shield size={16} className="text-green-600" />
-              <span className="font-medium">Everything here stays on your device.<br className="sm:hidden" /> Even we can't see it.</span>
+              <span className="font-medium">Everything here stays on your device.<br className="sm:hidden" /> Even we can&apos;t see it.</span>
             </div>
           </div>
 

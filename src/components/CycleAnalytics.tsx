@@ -301,7 +301,7 @@ export default function CycleAnalytics({ entries, onClose, onStartTracking }: Cy
             <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mb-6">
               <Sparkles className="text-pink-500" size={32} />
             </div>
-            <h3 className="text-2xl font-black text-gray-800 mb-3">Let's Understand Your Cycle</h3>
+            <h3 className="text-2xl font-black text-gray-800 mb-3">Let&apos;s Understand Your Cycle</h3>
             <p className="text-gray-500 text-sm mb-8 max-w-xs leading-relaxed">
               We need a little more info to provide personalized insights.
             </p>
@@ -324,7 +324,7 @@ export default function CycleAnalytics({ entries, onClose, onStartTracking }: Cy
             </div>
             <h3 className="text-2xl font-black text-gray-800 mb-3">Setup Complete!</h3>
             <p className="text-gray-600 text-sm mb-6 max-w-sm leading-relaxed">
-              We've created your baseline. Start logging periods to unlock detailed insights.
+              We&apos;ve created your baseline. Start logging periods to unlock detailed insights.
             </p>
              <div className="bg-gray-50 p-6 rounded-2xl mb-6 max-w-sm border border-gray-100">
                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Early Estimate</p>

@@ -41,7 +41,7 @@ export default function SecurityBanner() {
                   Just so you know...
                 </p>
                 <p className="text-xs text-green-700">
-                  Everything here stays on <strong>your device</strong>. We can't see it, even if we wanted to.
+                  Everything here stays on <strong>your device</strong>. We can&apos;t see it, even if we wanted to.
                 </p>
               </div>
               <button

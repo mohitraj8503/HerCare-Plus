@@ -100,7 +100,7 @@ export default function HabitTracker() {
       <div className="mt-7">
         <div className="flex items-center justify-between">
           <h3 className="font-semibold text-gray-900">
-            Today's Progress
+            Today&apos;s Progress
           </h3>
 
           <span className="text-sm text-gray-600">
