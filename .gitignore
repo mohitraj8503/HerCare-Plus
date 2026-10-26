@@ -40,5 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# ML generated artifacts and local downloads
+/ml/data/maternal-health-risk.zip
+/ml/data/maternal-health-risk/
+__pycache__/
+*.pyc
+
 # env template (safe to commit)
 !.env.example
