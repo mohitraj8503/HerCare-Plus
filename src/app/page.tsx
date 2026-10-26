@@ -226,6 +226,35 @@ export default function LandingPage() {
            </Link>
         </div>
 
+        {/* Wellness Dashboard Card */}
+<Link href="/wellness" className="block mb-8">
+  <motion.div
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+    className="rounded-[2rem] border border-pink-100 bg-gradient-to-r from-pink-50 to-purple-50 p-6 shadow-lg shadow-pink-100/50"
+  >
+    <div className="flex items-center justify-between gap-4">
+      <div>
+        <div className="mb-2 flex items-center gap-2">
+          <HeartPulse size={24} className="text-pink-600" />
+
+          <h2 className="text-lg font-bold text-gray-800">
+            Wellness Dashboard
+          </h2>
+        </div>
+
+        <p className="text-sm leading-relaxed text-gray-600">
+          Track hydration, sleep, activity, mood, and daily
+          wellness goals.
+        </p>
+      </div>
+
+      <div className="shrink-0 rounded-full bg-pink-600 p-3 text-white">
+        <ArrowRight size={22} />
+      </div>
+    </div>
+  </motion.div>
+</Link>
         {/* Trust & Safety Footer */}
         <div className="mt-auto py-6 text-center border-t border-pink-50">
           <div className="inline-flex items-center gap-2 mb-3 bg-white px-3 py-1 rounded-full border border-gray-100">

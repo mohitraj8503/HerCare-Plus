@@ -1,0 +1,168 @@
+"use client";
+
+import { useState } from "react";
+import { Heart, Plus } from "lucide-react";
+
+interface JournalEntry {
+  id: string;
+  date: string;
+  mood: number;
+  stress: number;
+  notes: string;
+}
+
+interface MoodStressJournalProps {
+  onStressChange?: (stress: number | null) => void;
+}
+
+export default function MoodStressJournal({
+  onStressChange,
+}: MoodStressJournalProps) {
+  const [entries, setEntries] = useState<JournalEntry[]>([]);
+  const [mood, setMood] = useState(3);
+  const [stress, setStress] = useState(3);
+  const [notes, setNotes] = useState("");
+
+  function saveEntry() {
+    const entry: JournalEntry = {
+      id: crypto.randomUUID(),
+      date: new Date().toLocaleDateString(),
+      mood,
+      stress,
+      notes: notes.trim(),
+    };
+
+    setEntries((previous) => [entry, ...previous]);
+    onStressChange?.(stress);
+    setNotes("");
+  }
+
+  return (
+    <section className="mt-10 rounded-3xl border border-pink-100 bg-white p-6 shadow-sm">
+      <div className="flex items-center gap-3">
+        <Heart className="text-pink-600" size={26} />
+
+        <h2 className="text-xl font-bold text-gray-900">
+          Mood & Stress Journal
+        </h2>
+      </div>
+
+      <p className="mt-3 text-sm text-gray-600">
+        Reflect on how you feel today. Your journal entries are
+        private to this page session and are not saved yet.
+      </p>
+
+      <div className="mt-6 grid gap-5 sm:grid-cols-2">
+        <div>
+          <label
+            htmlFor="journal-mood"
+            className="mb-2 block font-medium text-gray-700"
+          >
+            Mood: {mood}/5
+          </label>
+
+          <input
+            id="journal-mood"
+            type="range"
+            min="1"
+            max="5"
+            value={mood}
+            onChange={(event) =>
+              setMood(Number(event.target.value))
+            }
+            className="w-full accent-pink-600"
+          />
+
+          <p className="text-xs text-gray-500">
+            1 = Very low, 5 = Very positive
+          </p>
+        </div>
+
+        <div>
+          <label
+            htmlFor="journal-stress"
+            className="mb-2 block font-medium text-gray-700"
+          >
+            Stress: {stress}/5
+          </label>
+
+          <input
+            id="journal-stress"
+            type="range"
+            min="1"
+            max="5"
+            value={stress}
+            onChange={(event) =>
+              setStress(Number(event.target.value))
+            }
+            className="w-full accent-purple-600"
+          />
+
+          <p className="text-xs text-gray-500">
+            1 = Very low, 5 = Very high
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-6">
+        <label
+          htmlFor="journal-notes"
+          className="mb-2 block font-medium text-gray-700"
+        >
+          Reflection (optional)
+        </label>
+
+        <textarea
+          id="journal-notes"
+          value={notes}
+          maxLength={1000}
+          onChange={(event) => setNotes(event.target.value)}
+          placeholder="How are you feeling today?"
+          rows={4}
+          className="w-full rounded-xl border border-gray-300 p-3 text-gray-900"
+        />
+      </div>
+
+      <button
+        type="button"
+        onClick={saveEntry}
+        className="mt-5 flex items-center gap-2 rounded-xl bg-pink-600 px-5 py-3 font-semibold text-white hover:bg-pink-700"
+      >
+        <Plus size={18} />
+        Save Journal Entry
+      </button>
+
+      {entries.length > 0 && (
+        <div className="mt-8">
+          <h3 className="text-lg font-semibold text-gray-900">
+            Recent Reflections
+          </h3>
+
+          <div className="mt-4 space-y-3">
+            {entries.map((entry) => (
+              <article
+                key={entry.id}
+                className="rounded-2xl bg-pink-50 p-4"
+              >
+                <p className="text-sm font-medium text-gray-800">
+                  {entry.date}
+                </p>
+
+                <p className="mt-2 text-sm text-gray-700">
+                  Mood: {entry.mood}/5 · Stress:{" "}
+                  {entry.stress}/5
+                </p>
+
+                {entry.notes && (
+                  <p className="mt-2 whitespace-pre-wrap break-words text-sm text-gray-600">
+                    {entry.notes}
+                  </p>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
