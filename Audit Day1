@@ -1,0 +1,85 @@
+HerCare+ — Day 1 Project Audit
+
+**GitHub Repository:** https://github.com/mohitraj8503/HerCare-Plus
+
+1. Introduction
+
+Today, I started exploring the HerCare+ project to understand how it works and what features it has. My main goal was to run the project on my laptop, explore its different sections, and get familiar with its code and folder structure.
+
+I also wanted to find out which existing features and components might be useful when we start making improvements. Since I am still learning, I wanted to understand the project first before making any changes.
+
+2. Project Setup
+
+First, I cloned the project from GitHub and opened it in VS Code. Then, I installed the required dependencies using `npm install` and started the project using `npm run dev`.
+
+After that, I opened `http://localhost:3000` in my browser and explored the application.
+
+While exploring the project files, I learned that it uses Next.js, React, TypeScript, and Tailwind CSS. I also found that the symptom checker uses Gemini AI.
+
+I noticed a warning related to `next.config.js` while running the project. The application still started, so I noted it down for checking later.
+
+I did not create a new API key or deploy the project because my task for Day 1 was to understand the existing application.
+
+3. Features I Explored
+
+Homepage
+
+I explored the homepage to see how it looks and how users can move between different sections. I also noticed that it shows personalized greetings and affirmations.
+
+Menstrual Cycle Tracker
+
+I opened the menstrual cycle tracker and explored its interface to understand its purpose. I learned that this is one of the existing features that we should be careful not to break while making future changes.
+
+Symptom Checker
+
+I explored the symptom checker, where users can enter their symptoms and get health-related guidance. I also checked the language options and found that it supports English, Hindi, Tamil, Telugu, Bengali, and Marathi.
+
+While checking the code, I found that the symptom checker sends requests to the existing Gemini API route.
+
+Healthcare Finder
+
+I explored the healthcare finder to understand how users can find healthcare options. I noticed that users can select a city and filter the available options based on affordability, emergency care, and women-only services.
+
+I also saw options for calling and getting directions.
+
+Wellness Dashboard
+
+I explored the wellness dashboard and found sections related to hydration, nutrition, physical activity, sleep, and mood.
+
+I also came across components related to habit tracking and mood journaling, which I wanted to understand better.
+
+4. Project Structure and Reusable Components
+
+While exploring the project, I noticed that different pages have their own files and are organized into folders. For example, the homepage, cycle tracker, symptom checker, healthcare finder, and wellness dashboard have separate page files.
+
+I also found components such as `HabitTracker`, `MoodStressJournal`, and a voice-input hook.
+
+From what I have understood so far, these components might be useful for future improvements, so I would prefer to reuse them wherever possible instead of creating everything from scratch.
+
+Before changing any existing feature, I will first try to understand how it works and whether it is connected to other parts of the application.
+
+5. Privacy and Security Observations
+
+I also read the security documentation and looked at some of the security-related code to get a basic understanding of how the project handles user data.
+
+I found references to consent, anonymous user identification, data export, data deletion, input sanitization, and API rate limiting.
+
+While going through the code, I noticed a few things that I would like to understand better. For example, I found a function related to automatic data cleanup, but I still need to understand how the actual deletion of old data is handled. I also want to check how the database deletion process works.
+
+I noticed that the project uses an anonymous identifier in its encryption utility. I do not fully understand the security implications yet, so this is something I would like to learn more about.
+
+These are only my initial observations from the files I checked. I have not tested every security feature or completed a full security review.
+
+6. My Proposed Plan for Future Improvements
+
+Before starting any major changes, I want to compare the exact upgrade requirements with the features that are already available in HerCare+.
+
+My plan is to:
+
+1. Check which of the required features already exist in the project.
+2. Find out which existing features need improvement and which new features need to be added.
+3. Try to reuse existing components wherever possible.
+4. Make changes step by step so that I can understand what I am doing.
+5. Test the updated features and check that the existing features still work properly.
+6. Pay attention to privacy, security, error handling, and the user experience.
+7. Capture screenshots and document the changes after implementation.
