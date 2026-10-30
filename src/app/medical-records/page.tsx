@@ -23,6 +23,9 @@ const categories = [
 export default function MedicalRecordsPage() {
   const [records, setRecords] = useState<MedicalRecord[]>([]);
   const [file, setFile] = useState<File | null>(null);
+  const [ocrLoading, setOcrLoading] = useState(false);
+  const [ocrText, setOcrText] = useState("");
+  const [ocrError, setOcrError] = useState("");
   const [category, setCategory] = useState("other");
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
@@ -110,6 +113,48 @@ export default function MedicalRecordsPage() {
       setUploading(false);
     }
   }
+
+  async function extractSelectedFileText() {
+    if (!file) {
+      setOcrError("Please select an image first.");
+      return;
+    }
+
+    if (file.type !== "image/jpeg" && file.type !== "image/png") {
+      setOcrError("OCR currently supports JPEG and PNG images only.");
+      return;
+    }
+
+    setOcrLoading(true);
+    setOcrError("");
+    setOcrText("");
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await fetch("/api/medical-records/ocr", {
+        method: "POST",
+        body: formData,
+        cache: "no-store",
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "OCR extraction failed.");
+      }
+
+      setOcrText(result.ocr.text || "");
+    } catch (err) {
+      setOcrError(
+        err instanceof Error ? err.message : "OCR extraction failed."
+      );
+    } finally {
+      setOcrLoading(false);
+    }
+  }
+
 
   async function downloadDocument(record: MedicalRecord) {
     setBusyId(record.id);
@@ -363,9 +408,11 @@ async function viewVersionHistory(record: MedicalRecord) {
             id="medical-file"
             type="file"
             accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
-            onChange={(event) =>
-              setFile(event.target.files?.[0] || null)
-            }
+            onChange={(event) => {
+              setFile(event.target.files?.[0] || null);
+              setOcrText("");
+              setOcrError("");
+            }}
             required
             style={{ display: "block", marginBottom: 18, maxWidth: "100%" }}
           />
@@ -393,6 +440,60 @@ async function viewVersionHistory(record: MedicalRecord) {
               </option>
             ))}
           </select>
+
+          <div style={{ marginBottom: 18 }}>
+            <button
+              type="button"
+              onClick={() => void extractSelectedFileText()}
+              disabled={
+                !file ||
+                (file.type !== "image/jpeg" && file.type !== "image/png") ||
+                ocrLoading
+              }
+              style={buttonStyle}
+            >
+              {ocrLoading ? "Extracting text..." : "Extract text (OCR)"}
+            </button>
+
+            <p style={{ color: "#596579", fontSize: 13 }}>
+              OCR supports JPEG and PNG images only. Extracted text is
+              unverified and must be checked against the original document.
+            </p>
+
+            {ocrError && (
+              <p role="alert" style={{ color: "#b42318" }}>
+                {ocrError}
+              </p>
+            )}
+
+            {ocrText && (
+              <div>
+                <label
+                  htmlFor="ocr-result"
+                  style={{ display: "block", marginBottom: 8 }}
+                >
+                  Extracted text — review manually
+                </label>
+                <textarea
+                  id="ocr-result"
+                  value={ocrText}
+                  readOnly
+                  rows={6}
+                  style={{
+                    width: "100%",
+                    padding: 10,
+                    marginBottom: 8,
+                    resize: "vertical",
+                  }}
+                />
+                <p style={{ color: "#596579", fontSize: 13 }}>
+                  Check all extracted values against the original report.
+                  Do not use unverified OCR text for medical decisions.
+                </p>
+              </div>
+            )}
+          </div>
+
           <div>
             <button type="submit" disabled={uploading} style={buttonStyle}>
               {uploading ? "Uploading..." : "Upload document"}

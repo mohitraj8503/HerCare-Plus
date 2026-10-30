@@ -39,6 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/eng.traineddata
 
 # ML generated artifacts and local downloads
 /ml/data/maternal-health-risk.zip
