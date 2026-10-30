@@ -33,10 +33,10 @@ export default function ConsentPage() {
           {/* Title */}
           <div>
             <h1 className="text-3xl font-bold text-gray-800 mb-2">
-              You're in Control
+              You&apos;re in Control
             </h1>
             <p className="text-gray-600 text-lg">
-              Here's how we protect your privacy
+              Here&apos;s how we protect your privacy
             </p>
           </div>
 
@@ -61,7 +61,7 @@ export default function ConsentPage() {
               <div>
                 <h3 className="font-bold text-gray-800 mb-1">Encrypted Locally</h3>
                 <p className="text-sm text-gray-600">
-                  Your conversations are encrypted <strong>on your device</strong>. We can't read them, and no one else can either.
+                  Your conversations are encrypted <strong>on your device</strong>. We can&apos;t read them, and no one else can either.
                 </p>
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function ConsentPage() {
               <div>
                 <h3 className="font-bold text-gray-800 mb-1">No Ads, No Tracking</h3>
                 <p className="text-sm text-gray-600">
-                  We don't sell your data. We don't show you ads. <strong>You're not a product.</strong>
+                  We don&apos;t sell your data. We don&apos;t show you ads. <strong>You&apos;re not a product.</strong>
                 </p>
               </div>
             </div>
@@ -101,7 +101,7 @@ export default function ConsentPage() {
                 className="mt-1 w-5 h-5 accent-purple-600"
               />
               <span className="text-sm text-gray-700 leading-relaxed">
-                I understand how my privacy is protected. I'm ready to use HerCare+ knowing my data is safe and under my control.
+                I understand how my privacy is protected. I&apos;m ready to use HerCare+ knowing my data is safe and under my control.
               </span>
             </label>
           </div>
@@ -125,7 +125,7 @@ export default function ConsentPage() {
           </div>
 
           <p className="text-xs text-gray-400 italic">
-            This is a safe space. We're here to support you, not exploit you. 💜
+            This is a safe space. We&apos;re here to support you, not exploit you. 💜
           </p>
         </motion.div>
       </div>

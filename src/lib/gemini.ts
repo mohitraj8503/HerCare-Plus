@@ -3,21 +3,41 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 // ==============================
 // INIT
 // ==============================
-const apiKey = process.env.GEMINI_API_KEY;
+// Lazily initialised so that importing this module never throws at build
+// time. The API key is only required when a request actually uses the model.
+function createModel() {
+  const apiKey = process.env.GEMINI_API_KEY;
 
-if (!apiKey) {
-  throw new Error("GEMINI_API_KEY is not configured.");
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY is not configured.");
+  }
+
+  const genAI = new GoogleGenerativeAI(apiKey);
+
+  return genAI.getGenerativeModel({
+    model: "gemini-3.6-flash",
+    generationConfig: {
+      maxOutputTokens: 1000,
+    },
+  });
 }
 
-const genAI = new GoogleGenerativeAI(apiKey);
+export type GeminiModel = ReturnType<typeof createModel>;
 
-// ==============================
-// MODEL (TEXT ONLY, DIRECT ANSWERS)
-// ==============================
-export const model = genAI.getGenerativeModel({
-  model: "gemini-3.6-flash",
-  generationConfig: {
-    maxOutputTokens: 1000,
+let cachedModel: GeminiModel | undefined;
+
+export function getModel(): GeminiModel {
+  if (!cachedModel) cachedModel = createModel();
+  return cachedModel;
+}
+
+// Drop-in lazy proxy so existing call sites (`model.generateContent(...)`) keep
+// working without the module throwing on import.
+export const model = new Proxy({} as GeminiModel, {
+  get(_target, prop) {
+    const instance = getModel();
+    const value = Reflect.get(instance, prop, instance);
+    return typeof value === "function" ? value.bind(instance) : value;
   },
 });
 

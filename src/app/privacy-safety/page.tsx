@@ -54,7 +54,7 @@ export default function PrivacySafetyPage() {
               <CheckCircle size={20} className="text-pink-600 shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold text-pink-900 mb-1">Everything stays on your device.</p>
-                <p className="text-sm text-pink-700">Unless you choose to sign in, your data lives only on this phone. We can't see it even if we wanted to.</p>
+                <p className="text-sm text-pink-700">Unless you choose to sign in, your data lives only on this phone. We can&apos;t see it even if we wanted to.</p>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function PrivacySafetyPage() {
               </div>
               <div>
                 <p className="font-semibold text-gray-800 mb-1">No Third-Party Tracking</p>
-                <p className="text-gray-600">We don't use Google Analytics, Facebook Pixel, or any tracking scripts.</p>
+                <p className="text-gray-600">We don&apos;t use Google Analytics, Facebook Pixel, or any tracking scripts.</p>
               </div>
             </div>
 

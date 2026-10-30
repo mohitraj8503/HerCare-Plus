@@ -7,7 +7,12 @@ const withPWA = require('next-pwa')({
 });
 
 const nextConfig = {
-   // Other Next.js config
+  // The ML model artifact is read from disk at runtime via a path built from
+  // process.cwd(), so Next.js cannot trace it automatically. Ship it with the
+  // serverless function that needs it.
+  outputFileTracingIncludes: {
+    '/api/health-risk': ['./ml/artifacts/**'],
+  },
 };
 
 module.exports = withPWA(nextConfig);

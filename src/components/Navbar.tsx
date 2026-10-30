@@ -12,6 +12,7 @@ export default function Navbar() {
   const menuItems = [
     { icon: "🏠", label: "Home", href: "/" },
     { icon: "💖", label: "About HerCare⁺", href: "/about" },
+    { icon: "👤", label: "My Profile", href: "/profile" },
     { icon: "🔐", label: "Privacy & Safety", href: "/privacy-safety" },
   ];
 

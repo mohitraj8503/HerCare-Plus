@@ -96,6 +96,16 @@ Open [http://localhost:3000](http://localhost:3000) 🎉
 - Auto-delete old conversations
 - Transparent data handling
 
+### **5. Health risk screening (evidence-limited)**
+
+The stateless `/api/health-risk` endpoint provides a conservative, transparent
+screening risk indicator from explicitly validated symptom signals. It always
+abstains from clinical confidence and states that the result is **not a
+diagnosis** and **not clinically validated**. No health-risk results are
+stored. The pregnancy-vitals path uses the versioned UCI-backed artifact only
+as an evidence-limited screening estimate. See [the API contract](./docs/ml/API.md) and
+[documented limitations](./docs/ml/LIMITATIONS.md).
+
 ---
 
 ## 🛡️ **Security & Privacy**
